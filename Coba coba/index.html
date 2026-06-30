@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alat Penghitung Kata dan Karakter Online</title>
+    <meta name="description" content="Alat gratis untuk menghitung jumlah kata dan karakter pada teks Anda secara otomatis dan real-time.">
+
+    <!-- 1. KODE GOOGLE ADSENSE (AUTO ADS) TEMPEL TEPAT DI BAWAH BARIS INI -->
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; background-color: #f4f7f6; color: #333; margin: 0; padding: 0; }
+        header { background-color: #2c3e50; color: #fff; padding: 1.5rem 0; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { margin: 0; font-size: 24px; }
+        .container { max-width: 800px; margin: 30px auto; padding: 25px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        textarea { width: 100%; height: 250px; padding: 15px; font-size: 16px; border: 1px solid #ccc; border-radius: 6px; resize: vertical; box-sizing: border-box; font-family: inherit; margin-bottom: 15px; }
+        textarea:focus { outline: none; border-color: #2980b9; box-shadow: 0 0 5px rgba(41, 128, 185, 0.3); }
+        .result-box { display: flex; justify-content: space-around; background: #e8f4f8; padding: 20px; border-radius: 6px; font-weight: bold; font-size: 20px; }
+        .ad-space { background: #f9f9f9; text-align: center; padding: 30px 20px; margin: 30px 0; border: 2px dashed #ccc; color: #888; font-size: 14px; }
+        .article-content { margin-top: 40px; border-top: 1px solid #eee; padding-top: 30px; }
+        .article-content h2 { color: #2c3e50; font-size: 22px;}
+        .article-content h3 { color: #34495e; font-size: 18px;}
+        footer { text-align: center; padding: 25px; margin-top: 40px; font-size: 14px; color: #666; background: #fff; border-top: 1px solid #ddd; }
+        footer a { color: #2980b9; text-decoration: none; margin: 0 10px; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Penghitung Kata & Karakter</h1>
+    </header>
+
+    <div class="container">
+        <p>Masukkan atau paste teks Anda di kotak bawah ini. Sistem kami akan menghitung jumlah kata dan karakter secara instan tanpa perlu memuat ulang halaman.</p>
+        
+        <textarea id="inputText" placeholder="Ketik atau paste teks Anda di sini..."></textarea>
+        
+        <div class="result-box">
+            <div>Kata: <span id="wordCount" style="color:#e74c3c;">0</span></div>
+            <div>Karakter: <span id="charCount" style="color:#2980b9;">0</span></div>
+        </div>
+
+        <!-- 2. KODE GOOGLE ADSENSE MANUAL (DISPLAY ADS) TEMPEL DI BAWAH BARIS INI -->
+        <div class="ad-space">
+            [ Ruang Iklan Google AdSense Anda ]
+            <!-- Ganti teks ini dan paste kode unit iklan AdSense Anda di sini -->
+        </div>
+
+        <!-- Konten Artikel Pendukung (Sangat penting agar mudah disetujui AdSense) -->
+        <div class="article-content">
+            <h2>Mengapa Anda Membutuhkan Alat Penghitung Kata?</h2>
+            <p>Dalam era digital, mengelola panjang teks adalah hal yang sangat krusial. Baik Anda seorang penulis lepas, pelajar yang sedang menyusun esai akademik, pembuat konten, maupun praktisi SEO, alat penghitung kata online ini dirancang untuk mempermudah alur kerja Anda.</p>
+            
+            <h3>1. Optimasi Konten SEO (Search Engine Optimization)</h3>
+            <p>Mesin pencari seperti Google cenderung memprioritaskan konten yang mendalam dan komprehensif. Banyak ahli SEO merekomendasikan penulisan artikel blog antara 800 hingga 1.500 kata untuk memberikan informasi yang lengkap bagi pembaca sekaligus memenangkan peringkat atas di hasil pencarian.</p>
+
+            <h3>2. Batasan Karakter Media Sosial</h3>
+            <p>Setiap platform media sosial memiliki aturannya sendiri. Mengetahui batas karakter sangat penting agar pesan Anda tidak terpotong. Misalnya, Anda perlu memantau panjang karakter untuk memastikan cuitan Anda padat dan jelas sebelum diposting.</p>
+
+            <h3>3. Tugas Akademik dan Profesional</h3>
+            <p>Tugas kampus maupun dokumen profesional seringkali menetapkan batas minimum atau maksimum jumlah kata. Alat ini membantu Anda untuk tetap berada di dalam parameter yang diminta tanpa harus menghitung secara manual.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Alat Penghitung Kata & Karakter. Semua Hak Dilindungi.</p>
+        <p>
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a> | 
+            <a href="#">Contact Us</a>
+        </p>
+    </footer>
+
+    <script>
+        // Logika untuk menghitung kata dan karakter
+        const inputText = document.getElementById('inputText');
+        const wordCount = document.getElementById('wordCount');
+        const charCount = document.getElementById('charCount');
+
+        inputText.addEventListener('input', function() {
+            let text = this.value;
+            
+            // Hitung Karakter
+            charCount.textContent = text.length;
+
+            // Hitung Kata (mengabaikan spasi berlebih)
+            let words = text.trim().split(/\s+/);
+            if (text.trim() === '') {
+                wordCount.textContent = 0;
+            } else {
+                wordCount.textContent = words.length;
+            }
+        });
+    </script>
+</body>
+</html>
